@@ -126,69 +126,73 @@
                 height: 100%;
                 fill: white;
             }
-    
+
             @media (max-width: 700px) {
                 .top-image {
                     top: 70px;
                     width: min(500px, 88vw);
                 }
-    
+
                 .social-links {
                     top: 20px;
                     right: 25px;
                     gap: 14px;
                 }
-    
+
                 .social-links a {
                     width: 21px;
                     height: 21px;
                 }
-                
+
                 .steam-widget {
                     width: 90vw;
                     height: calc(190px * 0.9);
+
                     top: auto;
-                    bottom: 30px;
+                    bottom: 60px;
+
                     transform:
-                        translateX(-50%)
-                        scale(calc(90vw / 646));
+                            translateX(-50%)
+                            scale(calc(90vw / 646));
+
                     transform-origin: bottom center;
                 }
             }
-    
+
             @media (max-width: 400px) {
                 .top-image {
                     top: 65px;
                     width: 92vw;
                 }
-    
+
                 .social-links {
                     right: 18px;
                     top: 18px;
                     gap: 12px;
                 }
-    
+
                 .social-links a {
                     width: 19px;
                     height: 19px;
                 }
-    
+
                 .steam-widget {
-                    bottom: 20px;
+                    bottom: 60px;
+
                     transform:
-                        translateX(-50%)
-                        scale(calc(94vw / 646));
+                            translateX(-50%)
+                            scale(calc(94vw / 646));
                 }
             }
-    
+
             @media (max-width: 700px) and (max-height: 700px) {
                 .top-image {
                     top: 45px;
                     width: min(400px, 75vw);
                 }
-    
+
                 .steam-widget {
-                    bottom: 15px;
+                    bottom: 60px;
                 }
             }
         </style>
