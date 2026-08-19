@@ -1,331 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>spacebear games</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html, body {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        body {
-            position: relative;
-            background: radial-gradient(
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>spacebear games</title>
+        
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+    
+            html, body {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+    
+            body {
+                position: relative;
+                background: radial-gradient(
                     ellipse at 50% 20%,
                     #16294d 0%,
                     #0b1730 35%,
                     #050b18 75%,
                     #02050c 100%
-            );
-        }
-
-        #stars {
-            position: absolute;
-            inset: 0;
-            overflow: hidden;
-        }
-
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: #fff6cf;
-        }
-
-        .star.small {
-            width: 1px;
-            height: 1px;
-        }
-
-        .star.large {
-            width: 3px;
-            height: 3px;
-        }
-
-        .star.bright {
-            background: #fffde9;
-        }
-
-        .top-image {
-            position: absolute;
-            top: 100px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: min(500px, 80vw);
-            height: auto;
-            z-index: 10;
-            image-rendering: pixelated;
-            animation: float 4s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateX(-50%) translateY(0);
+                );
             }
-
-            50% {
-                transform: translateX(-50%) translateY(-20px);
+    
+            #stars {
+                position: absolute;
+                inset: 0;
+                overflow: hidden;
             }
-        }
-
-        .steam-widget {
-            position: absolute;
-            left: 50%;
-            top: 620px;
-            transform: translateX(-50%);
-            z-index: 10;
-            width: min(646px, 90vw);
-        }
-
-        .steam-widget iframe {
-            display: block;
-            width: 100%;
-            aspect-ratio: 646 / 190;
-            border: 0;
-        }
-
-        .social-links {
-            position: absolute;
-            top: 30px;
-            right: 130px;
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            z-index: 20;
-        }
-
-        .social-links a {
-            display: flex;
-            width: 24px;
-            height: 24px;
-            color: white;
-            opacity: 0.7;
-            transition:
+    
+            .star {
+                position: absolute;
+                width: 2px;
+                height: 2px;
+                background: #fff6cf;
+            }
+    
+            .star.small {
+                width: 1px;
+                height: 1px;
+            }
+    
+            .star.large {
+                width: 3px;
+                height: 3px;
+            }
+    
+            .star.bright {
+                background: #fffde9;
+            }
+    
+            .top-image {
+                position: absolute;
+                top: 100px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: min(500px, 80vw);
+                height: auto;
+                z-index: 10;
+                image-rendering: pixelated;
+                animation: float 4s ease-in-out infinite;
+            }
+    
+            @keyframes float {
+                0%, 100% {
+                    transform: translateX(-50%) translateY(0);
+                }
+    
+                50% {
+                    transform: translateX(-50%) translateY(-20px);
+                }
+            }
+    
+            .steam-widget {
+                position: absolute;
+                left: 50%;
+                top: 620px;
+                transform: translateX(-50%);
+                z-index: 10;
+                width: min(646px, 90vw);
+            }
+    
+            .steam-widget iframe {
+                display: block;
+                width: 100%;
+                aspect-ratio: 646 / 190;
+                border: 0;
+            }
+    
+            .social-links {
+                position: absolute;
+                top: 30px;
+                right: 130px;
+                display: flex;
+                align-items: center;
+                gap: 18px;
+                z-index: 20;
+            }
+    
+            .social-links a {
+                display: flex;
+                width: 24px;
+                height: 24px;
+                color: white;
+                opacity: 0.7;
+                transition:
                     opacity 0.2s ease,
                     transform 0.2s ease;
-        }
-
-        .social-links a:hover {
-            opacity: 1;
-            transform: translateY(-2px);
-        }
-
-        .social-links svg {
-            width: 100%;
-            height: 100%;
-            fill: white;
-        }
-
-        @media (max-width: 700px) {
-            .top-image {
-                top: 100px;
-                width: min(500px, 94vw);
             }
-
-            .social-links {
-                top: 20px;
-                right: 25px;
-                gap: 14px;
+    
+            .social-links a:hover {
+                opacity: 1;
+                transform: translateY(-2px);
             }
-
-            .social-links a {
-                width: 21px;
-                height: 21px;
+    
+            .social-links svg {
+                width: 100%;
+                height: 100%;
+                fill: white;
             }
-
-            .steam-widget {
-                width: 90vw;
-                height: calc(190px * 0.9);
-
-                top: auto;
-                bottom: 100px;
-
-                transform:
+    
+            @media (max-width: 700px) {
+                .top-image {
+                    top: 100px;
+                    width: min(500px, 94vw);
+                }
+    
+                .social-links {
+                    top: 20px;
+                    right: 25px;
+                    gap: 14px;
+                }
+    
+                .social-links a {
+                    width: 21px;
+                    height: 21px;
+                }
+    
+                .steam-widget {
+                    width: 90vw;
+                    height: calc(190px * 0.9);
+                    top: auto;
+                    bottom: 100px;
+                    transform:
                         translateX(-50%)
                         scale(calc(90vw / 646));
-
-                transform-origin: bottom center;
+                    transform-origin: bottom center;
+                }
             }
-        }
-
-        @media (max-width: 400px) {
-            .top-image {
-                top: 95px;
-                width: 94vw;
-            }
-
-            .social-links {
-                right: 18px;
-                top: 18px;
-                gap: 12px;
-            }
-
-            .social-links a {
-                width: 19px;
-                height: 19px;
-            }
-
-            .steam-widget {
-                bottom: 100px;
-
-                transform:
+    
+            @media (max-width: 400px) {
+                .top-image {
+                    top: 95px;
+                    width: 94vw;
+                }
+    
+                .social-links {
+                    right: 18px;
+                    top: 18px;
+                    gap: 12px;
+                }
+    
+                .social-links a {
+                    width: 19px;
+                    height: 19px;
+                }
+    
+                .steam-widget {
+                    bottom: 100px;
+    
+                    transform:
                         translateX(-50%)
                         scale(calc(94vw / 646));
-            }
-        }
-
-        @media (max-width: 700px) and (max-height: 700px) {
-            .top-image {
-                top: 75px;
-                width: min(400px, 85vw);
-            }
-
-            .steam-widget {
-                bottom: 100px;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-<div class="social-links">
-
-    <a
-            href="https://x.com/sp4cebear"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="X"
-    >
-        <svg viewBox="0 0 24 24">
-            <path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.4L2.8 2h6.4l4.4 5.8L18.9 2zm-1.1 17.8h1.7L8.3 4.1H6.5l11.3 15.7z"/>
-        </svg>
-    </a>
-
-    <a
-            href="https://discord.gg/kA4xwrhtk"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Discord"
-    >
-        <svg viewBox="0 0 24 24">
-            <path d="M19.5 5.2A16.3 16.3 0 0 0 15.7 4l-.5 1a14.8 14.8 0 0 0-6.4 0l-.5-1a16.3 16.3 0 0 0-3.8 1.2C2.1 8.8 1.5 12.3 1.8 15.7a16.4 16.4 0 0 0 4.7 2.4l1.1-1.5a9.6 9.6 0 0 1-1.7-.8l.4-.3a11.7 11.7 0 0 0 11.4 0l.4.3c-.5.3-1.1.6-1.7.8l1.1 1.5a16.4 16.4 0 0 0 4.7-2.4c.4-4-.7-7.5-2.7-10.5zM8.5 14.1c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2zm7 0c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2z"/>
-        </svg>
-    </a>
-
-    <a
-            href="https://www.youtube.com/@sp4cebear"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="YouTube"
-    >
-        <svg viewBox="0 0 24 24">
-            <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.9V8.1l6.5 3.9-6.5 3.9z"/>
-        </svg>
-    </a>
-
-</div>
-
-<div id="stars"></div>
-
-<img
-        class="top-image"
-        src="logo.png"
-        alt=""
->
-
-<div class="steam-widget">
-    <iframe
-            src="https://store.steampowered.com/widget/3846540/"
-            frameborder="0"
-            width="646"
-            height="190">
-    </iframe>
-</div>
-
-<script>
-    const stars = document.getElementById("stars");
-    const logo = document.querySelector(".top-image");
-
-    const starCount = 250;
-    const logoPadding = 8;
-
-    function isInsideLogo(x, y) {
-        const rect = logo.getBoundingClientRect();
-
-        const centerX = (rect.left + rect.right) / 2;
-        const centerY = (rect.top + rect.bottom) / 2;
-
-        const radius = Math.max(rect.width, rect.height) / 2 + logoPadding;
-
-        const dx = x - centerX;
-        const dy = y - centerY;
-
-        return dx * dx + dy * dy <= radius * radius;
-    }
-
-    function createStars() {
-        stars.innerHTML = "";
-
-        for (let i = 0; i < starCount; i++) {
-            const star = document.createElement("div");
-
-            star.classList.add("star");
-
-            const size = Math.random();
-
-            if (size < 0.7) {
-                star.classList.add("small");
-            } else if (size > 0.96) {
-                star.classList.add("large");
-            }
-
-            if (Math.random() > 0.85) {
-                star.classList.add("bright");
-            }
-
-            let x;
-            let y;
-            let attempts = 0;
-
-            do {
-                x = Math.random() * window.innerWidth;
-                y = Math.random() * window.innerHeight;
-
-                attempts++;
-
-                if (attempts > 1000) {
-                    break;
                 }
-
-            } while (isInsideLogo(x, y));
-
-            star.style.left = `${x}px`;
-            star.style.top = `${y}px`;
-
-            stars.appendChild(star);
-        }
-    }
-
-    if (logo.complete) {
-        createStars();
-    } else {
-        logo.addEventListener("load", createStars);
-    }
-
-    window.addEventListener("resize", createStars);
-</script>
-
-</body>
+            }
+    
+            @media (max-width: 700px) and (max-height: 700px) {
+                .top-image {
+                    top: 75px;
+                    width: min(400px, 85vw);
+                }
+    
+                .steam-widget {
+                    bottom: 100px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="social-links">
+            <a
+                href="https://x.com/sp4cebear"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X"
+            >
+                <svg viewBox="0 0 24 24">
+                    <path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.4L2.8 2h6.4l4.4 5.8L18.9 2zm-1.1 17.8h1.7L8.3 4.1H6.5l11.3 15.7z"/>
+                </svg>
+            </a>
+            <a
+                href="https://discord.gg/kA4xwrhtk"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Discord"
+            >
+                <svg viewBox="0 0 24 24">
+                    <path d="M19.5 5.2A16.3 16.3 0 0 0 15.7 4l-.5 1a14.8 14.8 0 0 0-6.4 0l-.5-1a16.3 16.3 0 0 0-3.8 1.2C2.1 8.8 1.5 12.3 1.8 15.7a16.4 16.4 0 0 0 4.7 2.4l1.1-1.5a9.6 9.6 0 0 1-1.7-.8l.4-.3a11.7 11.7 0 0 0 11.4 0l.4.3c-.5.3-1.1.6-1.7.8l1.1 1.5a16.4 16.4 0 0 0 4.7-2.4c.4-4-.7-7.5-2.7-10.5zM8.5 14.1c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2zm7 0c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2z"/>
+                </svg>
+            </a>
+            <a
+                href="https://www.youtube.com/@sp4cebear"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+            >
+                <svg viewBox="0 0 24 24">
+                    <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.9V8.1l6.5 3.9-6.5 3.9z"/>
+                </svg>
+            </a>
+        </div>
+        
+        <div id="stars"></div>
+        
+        <img
+            class="top-image"
+            src="logo.png"
+            alt=""
+        >
+        
+        <div class="steam-widget">
+            <iframe
+                src="https://store.steampowered.com/widget/3846540/"
+                frameborder="0"
+                width="646"
+                height="190">
+            </iframe>
+        </div>
+        <script>
+            const stars = document.getElementById("stars");
+            const logo = document.querySelector(".top-image");
+        
+            const starCount = 250;
+            const logoPadding = 8;
+        
+            function isInsideLogo(x, y) {
+                const rect = logo.getBoundingClientRect();
+        
+                const centerX = (rect.left + rect.right) / 2;
+                const centerY = (rect.top + rect.bottom) / 2;
+        
+                const radius = Math.max(rect.width, rect.height) / 2 + logoPadding;
+        
+                const dx = x - centerX;
+                const dy = y - centerY;
+        
+                return dx * dx + dy * dy <= radius * radius;
+            }
+        
+            function createStars() {
+                stars.innerHTML = "";
+        
+                for (let i = 0; i < starCount; i++) {
+                    const star = document.createElement("div");
+        
+                    star.classList.add("star");
+        
+                    const size = Math.random();
+        
+                    if (size < 0.7) {
+                        star.classList.add("small");
+                    } else if (size > 0.96) {
+                        star.classList.add("large");
+                    }
+        
+                    if (Math.random() > 0.85) {
+                        star.classList.add("bright");
+                    }
+        
+                    let x;
+                    let y;
+                    let attempts = 0;
+        
+                    do {
+                        x = Math.random() * window.innerWidth;
+                        y = Math.random() * window.innerHeight;
+        
+                        attempts++;
+        
+                        if (attempts > 1000) {
+                            break;
+                        }
+        
+                    } while (isInsideLogo(x, y));
+        
+                    star.style.left = `${x}px`;
+                    star.style.top = `${y}px`;
+        
+                    stars.appendChild(star);
+                }
+            }
+        
+            if (logo.complete) {
+                createStars();
+            } else {
+                logo.addEventListener("load", createStars);
+            }
+        
+            window.addEventListener("resize", createStars);
+        </script>
+    </body>
 </html>
