@@ -264,12 +264,16 @@
     function isInsideLogo(x, y) {
         const rect = logo.getBoundingClientRect();
 
-        return (
-            x >= rect.left - logoPadding &&
-            x <= rect.right + logoPadding &&
-            y >= rect.top - logoPadding &&
-            y <= rect.bottom + logoPadding
-        );
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        // Circular exclusion area around the logo
+        const radius = Math.min(rect.width, rect.height) / 2 + logoPadding;
+
+        const dx = x - centerX;
+        const dy = y - centerY;
+
+        return (dx * dx + dy * dy) <= radius * radius;
     }
 
     function createStars() {
